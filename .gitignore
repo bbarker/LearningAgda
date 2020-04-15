@@ -1,0 +1,9 @@
+*~
+*.agdai
+hello/hello-world
+MAlonzo
+
+venv
+.emacs
+.agda
+
