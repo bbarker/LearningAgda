@@ -7,3 +7,5 @@ venv
 .emacs
 .agda
 
+
+.emacs_user_config

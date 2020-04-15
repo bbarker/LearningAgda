@@ -56,10 +56,14 @@ agda.mkDerivation(self:  {
 
       echo '(load-file "~/.emacs")' > $AGDA_PROJ_DIR/.emacs
       agda-mode setup
-
+      export EMACS_USER_FILE="$AGDA_PROJ_DIR/.emacs_user_config"
+      if [ -f "$EMACS_USER_FILE" ]; then
+        cat "$EMACS_USER_FILE" >> $AGDA_PROJ_DIR/.emacs
+      fi
       export HOME=$ORIG_HOME
       unset ORIG_HOME
       rmdir .emacs.d
+      unset EMACS_USER_FILE
     fi
     
     mymacs () {
