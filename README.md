@@ -5,11 +5,16 @@
 To launch emacs with agda-mode enabled, run `mymacs` in the newly launched shell;
 `mymacs` will still use your `~/.emacs file as well`
 
+Examle: run `mymacs  examples/hello/hello-world.agda` then type `C-c C-x C-c` in emacs
+to compile the loaded hello world file.
+
 ## Configuration
 
 Edit any of the nix expressions as needed. In particular:
 
-1. To add more Haskell or other system dependencies, edit `deps.nix`.
+0. To add Agda dependencies via agda-pkg, edit `requirements.txt` 
+1. To add more Haskell or other system dependencies or other
+  target-language dependencies, edit `deps.nix`.
 2. To add or alter the editor used, change the `myEmacs`
   references in `shell.nix` or add similar derivations.
 3. Optionally, create `.emacs_user_config` in the repository root directory and

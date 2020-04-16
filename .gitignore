@@ -1,6 +1,6 @@
 *~
 *.agdai
-hello/hello-world
+examples/hello/hello-world
 MAlonzo
 
 venv

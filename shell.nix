@@ -46,7 +46,7 @@ agda.mkDerivation(self:  {
       mkdir -p "$AGDA_DIR"
       apkg init
       apkg upgrade
-      apkg install standard-library@v1.2
+      apkg install -r requirements.txt
     fi
 
 
@@ -54,7 +54,7 @@ agda.mkDerivation(self:  {
       export ORIG_HOME=$HOME
       export HOME=$AGDA_PROJ_DIR
 
-      echo '(load-file "~/.emacs")' > $AGDA_PROJ_DIR/.emacs
+      echo '(load (expand-file-name "~/.emacs") "" nil t)' > $AGDA_PROJ_DIR/.emacs
       agda-mode setup
       export EMACS_USER_FILE="$AGDA_PROJ_DIR/.emacs_user_config"
       if [ -f "$EMACS_USER_FILE" ]; then
