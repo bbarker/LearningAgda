@@ -3,9 +3,11 @@
 `nix-shell` from the current directory.
 
 To launch emacs with agda-mode enabled, run `mymacs` in the newly launched shell;
-`mymacs` will still use your `~/.emacs file as well`
+`mymacs` will also load your `~/.emacs` file if it exists. If you are using
+[spacemacs](https://www.spacemacs.org), you will need to edit `shell.nix`
+to use `~/.spacemacs` instead.
 
-Examle: run `mymacs  examples/hello/hello-world.agda` then type `C-c C-x C-c` in emacs
+**Examle**: run `mymacs  examples/hello/hello-world.agda` then type `C-c C-x C-c` in emacs
 to compile the loaded hello world file.
 
 ## Configuration
