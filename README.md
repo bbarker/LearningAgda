@@ -1,4 +1,9 @@
-# Nix usage
+## Preamble
+
+While this repository has example sources, it can also be used as a template to create an Agda project in Nix or NixOS. Just delete the `examples` and `attic` directoreis once you are sure the environment works as expected and then add your own sources.
+
+
+## Nix usage
 
 `nix-shell` from the current directory.
 
@@ -10,7 +15,7 @@ to use `~/.spacemacs` instead.
 **Examle**: run `mymacs  examples/hello/hello-world.agda` then type `C-c C-x C-c` in emacs
 to compile the loaded hello world file.
 
-## Configuration
+### Configuration
 
 Edit any of the nix expressions as needed. In particular:
 
