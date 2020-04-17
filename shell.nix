@@ -46,7 +46,7 @@ agda.mkDerivation(self:  {
       mkdir -p "$AGDA_DIR"
       apkg init
       apkg upgrade
-      apkg install -r requirements.txt
+      apkg install -r agda_requirements.txt
     fi
 
 
