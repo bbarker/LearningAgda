@@ -13,12 +13,27 @@ data ℕ⁺ : Set where
   double   : ℕ⁺ → ℕ⁺
   double+1 : ℕ⁺ → ℕ⁺
 
+-- This seems difficult to do without `suc`: we seem to get termination checking issues
+-- We could add `suc` as a data constructor
+-- for ℕ⁺, then prove later that (suc n) = n + one.
+-- _+⁺_ : ℕ⁺ → ℕ⁺ → ℕ⁺
+-- one +⁺ one = double one
+-- (double m) +⁺ (double n) = double (m +⁺ n)
+-- (double+1 m) +⁺ (double+1 n) = double ((m +⁺ n) +⁺ one)
+-- one +⁺ (double n) = double+1 n
+-- one +⁺ (double+1 n) = double (n +⁺ one)
+-- (double m) +⁺ (double+1 n) = double+1 (m +⁺ n)
+-- -- And add commutativity:
+-- (double n) +⁺ one = double+1 n
+-- (double+1 n) +⁺ one = double (n +⁺ one)
+-- (double+1 n) +⁺ (double m) = double+1 (m +⁺ n)
+
 data ℕ₂ : Set where
   zero : ℕ₂
   id   : ℕ⁺ → ℕ₂
 
 
--- Can't do this sinc  ℕ⁺ doesn't have 0:
+-- Can't do this since  ℕ⁺ doesn't have 0:
 -- ℕ₂Toℕ⁺ : ℕ₂ → ℕ⁺
 -- ℕ₂Toℕ⁺  zero = ???
 -- ℕ₂Toℕ⁺ (id n) = n
@@ -32,7 +47,10 @@ data ℕ₂ : Set where
 ℕ₂Toℕ zero = zero
 ℕ₂Toℕ (id n) = ℕ⁺Toℕ n
 
--- TODO: ℕToℕ₂ : ℕ → ℕ₂
+-- Similar to the above _+⁺_, this seems difficult to implement without `suc` for ℕ⁺
+-- ℕToℕ₂ : ℕ → ℕ₂
+-- ℕToℕ₂ zero = zero
+-- ℕToℕ₂ (suc n) = id (one + )
 
 -- -- To pick ℕ or ℕ₂ -- -- 
 -- n * 2
