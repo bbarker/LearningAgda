@@ -38,6 +38,16 @@ data ℕ₂ : Set where
 -- ℕ₂Toℕ⁺  zero = ???
 -- ℕ₂Toℕ⁺ (id n) = n
 
+-- | Sends 0 to 1!
+unsafeℕ₂Toℕ⁺ : ℕ₂ → ℕ⁺
+unsafeℕ₂Toℕ⁺ zero = one
+unsafeℕ₂Toℕ⁺ (id n) = n
+
+-- -- | Sends 0 to 1!
+-- unsafeℕToℕ⁺ : ℕ₂ → ℕ⁺
+-- unsafeℕToℕ⁺ zero = one
+-- unsafeℕToℕ⁺ (suc n) = ? -- need to recurse
+
 ℕ⁺Toℕ : ℕ⁺ → ℕ
 ℕ⁺Toℕ one = suc(zero)
 ℕ⁺Toℕ (double n) = (ℕ⁺Toℕ n) + (ℕ⁺Toℕ n)
@@ -48,20 +58,24 @@ data ℕ₂ : Set where
 ℕ₂Toℕ (id n) = ℕ⁺Toℕ n
 
 -- Similar to the above _+⁺_, this seems difficult to implement without `suc` for ℕ⁺
+-- But, we can use `unsafeℕ₂Toℕ⁺` ? Either way seems like we need to make use of "native"
+-- integer matht o recurse down and find "half of n" ... hmm
 -- ℕToℕ₂ : ℕ → ℕ₂
 -- ℕToℕ₂ zero = zero
 -- ℕToℕ₂ (suc n) = id (one + )
 
--- -- To pick ℕ or ℕ₂ -- -- 
--- n * 2
 
+
+-- -- To pick ℕ or ℕ₂ -- --
+
+-- | n * 2  (ℕ₂ is the winner)
 mul2 : ℕ₂ → ℕ₂
 mul2 zero = zero
 mul2 (id n) = id (double n)
-
--- mul2 : ℕ → ℕ
--- mul2 zero = zero
--- mul2 (id n) = id (double n)
+-- 
+-- mul2n : ℕ → ℕ
+-- mul2n zero = zero
+-- mul2n (suc n) = ℕ⁺Toℕ ( double (unsafeℕToℕ⁺ (suc n)) )
 
 
 
