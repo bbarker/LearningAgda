@@ -78,4 +78,18 @@ mul2 (id n) = id (double n)
 -- mul2n (suc n) = ℕ⁺Toℕ ( double (unsafeℕToℕ⁺ (suc n)) )
 
 
+data ℤ : Set where
+  zero : ℤ
+  pos : ℕ⁺ -> ℤ
+  neg : ℕ⁺ -> ℤ
+
+--- Binary Trees ---
+
+data BinTree : Set where
+  leaf : ℕ → BinTree
+  node : BinTree → BinTree → ℕ → BinTree
+
+data [ℕ] : Set where
+  Nil : [ℕ]
+  :: : ℕ → [ℕ] → [ℕ]
 
