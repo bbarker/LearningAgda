@@ -1,8 +1,9 @@
 with import <nixpkgs> {};
 let
-  thisAgda = pkgs.haskellPackages.ghcWithPackages ( p: [p.Agda p.ieee754] );
+  # thisAgda = pkgs.haskellPackages.ghcWithPackages ( p: [p.Agda p.ieee754] );
+  thisAgda = pkgs.agda;
 in
-agda.mkDerivation(self:  {
+stdenv.mkDerivation {
   name = "commonAgdaDeps";
   dontUnpack = true;
   myAgda = thisAgda;
@@ -13,4 +14,4 @@ agda.mkDerivation(self:  {
     # pkgs.agdaPrelude (pkgs.haskellPackages.ghcWithPackages ( p: [p.ieee]) )
   ];
   src = null;
-})
+}
